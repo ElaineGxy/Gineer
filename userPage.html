@@ -9,6 +9,7 @@
       <link rel="stylesheet" type="text/css" href="css/base.css">
       <link rel="stylesheet" type="text/css" href="css/common.css">
   </head>
+  <body onload="load()" id="userPage">
   <header>
       <img class="logo" src="img/logo2.png">
       <nav>
@@ -25,7 +26,7 @@
         <a id="myHome" href="userPage.html">Rebecca</a>
       </span>
   </header>
-  <body onload="load()" id="userPage">
+
     <div>
       <h1>Rebecca</h1>
       <section id="profile">
@@ -95,74 +96,27 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript">
         function load(){
-        alert(document.cookie);
+          $userid = document.cookie.split(";")[0];
         $.ajax({
-              type: "POST",
-              url:'Handler/listAllActivity.php',
-              data:{}, 
+              type: "GET",
+              url:'Handler/userProfile.php',
+              data:{user_id:$userid}, 
               success: function(data)
               {
                   var result = JSON.parse(data);
-                  var len = result.length;
-                  $("#active").empty();
+                  var len = result['activityList'].length;
+                  $("#userPage header").siblings().remove();
 
-
-                  var $prof = "<div><h1>"+result['name']+"</h1><section id='profile'><h2>Profile</h2><div id='mail'><span>邮&emsp;箱</span><span>"+result['email']+"</span></div><div id='loc'><span>居住地</span><span>"+result['location']+"</span></div><div id='phone'><span>电&emsp;话</span><span>"+result['telephone']+"</span></div><div id='type'><span>用户类型</span><span>"+result['type']+"</span></div><div id='depart'><span>单&emsp;位</span><span>清华大学</span></div></section><section id='activity'><h2>"+result['company']+"</h2>";
-
-
-
-                  var tag = result[0]['tag'].split(',').join('</span><span>');
-                  var $html = "<div><h3>"+result['activityList'][0]['topic']+"（"+result['activityList'][0]['status']+"）<span>发起人："+result['activityList'][0]['sponsor']+"</span></h3><div class='tag'>标签：<span>"+tag+"</span></div><div class='intro'>"+result['activityList'][0]['description']+"</div><div class='TimeAdd'><span>时间："+result['activityList'][0]['time']+"</span><span>地点："+result['activityList'][0]['location']+"</span></div><div class='count'><span>参与人数："+result['activityList'][0]['topic']+"人</span></div></div>";
-
-                  $("#active").append($html);
+                  var $html = "<div><h1>"+result[0]['name']+"</h1><section id='profile'><h2>Profile</h2><div id='mail'><span>邮&emsp;箱</span><span>"+result[0]['email']+"</span></div><div id='loc'><span>居住地</span><span>Beijing"+"</span></div><div id='phone'><span>电&emsp;话</span><span>"+result[0]['telephone']+"</span></div><div id='type'><span>用户类型</span><span>"+result[0]['type']+"</span></div><div id='depart'><span>单&emsp;位</span><span>"+result[0]['company']+"</span></div></section>";
+                  var tag = result['activityList'][0]['tag'].split(',').join('</span><span>');
+                  $html += "<section id='activity'><h2>Activity</h2><div><h3>"+result['activityList'][0]['topic']+"（"+result['activityList'][0]['status']+"）<span>发起人："+result['activityList'][0]['sponsor']+"</span></h3><div class='tag'>标签：<span>"+tag+"</span></div><div class='intro'>"+result['activityList'][0]['description']+"</div><div class='TimeAdd'><span>时间："+result['activityList'][0]['time']+"</span><span>地点："+result['activityList'][0]['location']+"</span></div><div class='count'><span>参与人数："+result['activityList'][0]['user_count']+"人</span></div></div>";
+                  $("#userPage").append($html);
                 for (var i = 1; i < len; i++) 
                 {
-                  var $tag = result[i]['tag'].split(',').join('</span><span>');
-                  var $html = "<section><h1>" + result[i]['topic'] + "（" + result[i]['status'] + ")<span>发起人：" + result[i]['sponsor'] + "</span></h1><div class='tag'>标签：<span>" + tag + "</span></div><div class='intro'>" + result[i]['description'] + "</div><div class='TimeAdd'><span>时间：" + result[i]['time'] + "</span><span>" + result[i]['location'] + "</span></div><div class='apply forbid'><button>我要报名</button><span>已报名人数：" + result[i]['user_count']+ "人</span></div></section>";
-                  $("#active").append($html);
-                }
-
-
-                  
-        <div>
-          <h3>Girl Hackthon（正在举行）<span>发起人：Google</span></h3>
-            <div class="tag">标签：<span>谷歌</span><span>开发</span></div>
-            <div class="intro">描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</div>
-            <div class="TimeAdd">
-              <span>时间：2016.7.1-7.3</span>
-              <span>地点：北京谷歌大厦</span>
-            </div>
-            <div class="count">
-              <span>参与人数：50人</span>
-            </div>
-        </div>
-
-        <div>
-          <h3>Girl Hackthon（报名中）<span>发起人：Google</span></h3>
-            <div class="tag">标签：<span>谷歌</span><span>开发</span></div>
-            <div class="intro">描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</div>
-            <div class="TimeAdd">
-              <span>时间：2016.7.1-7.3</span>
-              <span>地点：北京谷歌大厦</span>
-            </div>
-            <div class="count">
-              <span>参与人数：50人</span>
-            </div>
-        </div>
-      </section>
-    </div>
-
-
-                  var tag = result[0]['tag'].split(',').join('</span><span>');
-                  var $html = "<section><h1>" + result[0]['topic'] + "（" + result[0]['status'] + ")<span>发起人：" + result[0]['sponsor'] + "</span></h1><div class='tag'>标签：<span>" + tag + "</span></div><div class='intro'>" + result[0]['description'] + "</div><div class='TimeAdd'><span>时间：" + result[0]['time'] + "</span><span>" + result[0]['location'] + "</span></div><div class='apply forbid'><button>我要报名</button><span>已报名人数：" + result[0]['user_count']+ "人</span></div></section>";
-
-                  $("#active").append($html);
-                for (var i = 1; i < len; i++) 
-                {
-                  var $tag = result[i]['tag'].split(',').join('</span><span>');
-                  var $html = "<section><h1>" + result[i]['topic'] + "（" + result[i]['status'] + ")<span>发起人：" + result[i]['sponsor'] + "</span></h1><div class='tag'>标签：<span>" + tag + "</span></div><div class='intro'>" + result[i]['description'] + "</div><div class='TimeAdd'><span>时间：" + result[i]['time'] + "</span><span>" + result[i]['location'] + "</span></div><div class='apply forbid'><button>我要报名</button><span>已报名人数：" + result[i]['user_count']+ "人</span></div></section>";
-                  $("#active").append($html);
-                }
+                  var tag = result['activityList'][i]['tag'].split(',').join('</span><span>');
+                  var $html = "<div><h3>"+result['activityList'][i]['topic']+"（"+result['activityList'][i]['status']+"）<span>发起人："+result['activityList'][i]['sponsor']+"</span></h3><div class='tag'>标签：<span>"+tag+"</span></div><div class='intro'>"+result['activityList'][i]['description']+"</div><div class='TimeAdd'><span>时间："+result['activityList'][i]['time']+"</span><span>地点："+result['activityList'][i]['location']+"</span></div><div class='count'><span>参与人数："+result['activityList'][i]['user_count']+"人</span></div></div>";
+                  $("#userPage").append($html);
+                }  
               }
             });
       }
