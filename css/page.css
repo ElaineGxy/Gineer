@@ -1,0 +1,424 @@
+﻿header{
+  padding: 15px 100px;
+  margin: 0;
+  margin-bottom: 40px;
+  background-color: #EDEDED;
+  font-weight: bold;
+  font-size: 22px;
+}
+header .logo{
+	width: 150px;
+	vertical-align: middle;
+	margin-right: 80px;
+	margin-top: -10px;
+}
+header nav{
+	display: inline-block;
+	margin-right: 60px;
+}
+header nav span{
+	margin-right: 15px;
+}
+header #search img{
+	width: 20px;
+}
+header #search input{
+	width: 200px;
+	height: 25px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+header #search input:focus{
+	border-color: rgba(82,168,236,.8);
+	outline: 0;
+	box-shadow: 0 0 8px rgba(82,168,236,.6);
+}
+header #myHome{
+	float: right;
+	text-align: center;
+	float: right;
+	color: rgb(66,133,244);
+	cursor: pointer;
+	margin-right: 10px;
+}
+header #exit{
+	float: right;
+	font-size: 16px;
+	text-decoration: underline;
+	cursor: pointer;
+	margin-top: 3px;
+	font-weight: normal;
+}
+
+
+/*登录*/
+#login{
+	width: 350px;
+	margin: 0 auto;
+	padding-top: 200px;
+}
+#login h1{
+	font-size: 28px;
+	margin-bottom: 25px;
+}
+#login h1 img{
+	width: 250px;
+	margin-right: 15px;
+}
+#login h1 i{
+	display: inline-block;
+	margin-right: 3px;
+	color: #0069EC;
+	font-weight: bold;
+}
+#login h1 i:last-child{
+	color: #F80621;
+}
+#login > div > div{
+	padding-left: 10px;
+	margin-bottom: 15px;
+}
+#login label{
+	font-size: 20px;
+	margin-right: 5px;
+	color: #009A03;
+}
+#login input{
+	width: 250px;
+	height: 25px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+#login input:focus{
+	border-color: rgba(82,168,236,.8);
+	outline: 0;
+	box-shadow: 0 0 8px rgba(82,168,236,.6);
+}
+#login #links{
+	text-align: right;
+	margin-right: 20px;
+}
+#login #links a{
+	margin-right: 10px;
+	color: #000;
+	text-decoration: underline;
+}
+#login #commit{
+	text-align: center;
+}
+#login #commit a{
+	color: #fff;
+	background-color: rgb(66,133,244);
+	border-radius: 4px;
+	border: none;
+	font-size: 16px;
+	padding: 8px 10px;
+	width: 80px;
+	display: inline-block;
+	text-align: center;
+	margin-right: 20px;
+}
+
+/*注册*/
+#register{
+	width: 400px;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+#register h1{
+	font-size: 28px;
+	margin-bottom: 25px;
+}
+#register h1 img{
+	width: 250px;
+	margin-right: 15px;
+	vertical-align: bottom;
+}
+#register h1 i{
+	display: inline-block;
+	margin-right: 3px;
+	color: #0069EC;
+	font-weight: bold;
+}
+#register h1 i:last-child{
+	color: #F80621;
+}
+#register > div > div{
+	margin-left: -10px;
+	margin-bottom: 15px;
+}
+#register label{
+	font-size: 20px;
+	margin-right: 5px;
+	color: #009A03;
+	display: inline-block;
+	text-align: right;
+	width: 90px;
+}
+#register input{
+	width: 220px;
+	height: 25px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+#register input:focus{
+	border-color: rgba(82,168,236,.8);
+	outline: 0;
+	box-shadow: 0 0 8px rgba(82,168,236,.6);
+}
+#register #commit{
+	text-align: center;
+	margin-top: 30px;
+}
+#register #commit a{
+	color: #fff;
+	background-color: rgb(66,133,244);
+	border-radius: 4px;
+	border: none;
+	font-size: 16px;
+	padding: 8px 10px;
+	width: 80px;
+	display: inline-block;
+	text-align: center;
+	margin-right: 20px;
+}
+
+/*首页*/
+#home .left{
+	width: 70%;
+	float: left;
+}
+#home .left > div{
+	padding-left: 100px;
+}
+#home .left > div section{
+	border-top: 1px solid black;
+	padding: 15px 10px;
+	line-height: 20px;
+}
+#home .left > div section h1{
+	color: rgb(66,133,244);
+	font-weight: bold;
+	font-size: 18px;
+  	font-family: '微软雅黑';
+}
+#home .left > div section h1 span{
+	color: #000;
+	margin-left: 20px;
+	font-weight: normal;
+	font-size: 14px;
+}
+#home .left > div section .tag,
+#home .left > div section .TimeAdd,
+#home .left > div section .apply{
+	margin: 5px 0;
+	font-size: 14px;
+}
+#home .left > div section .tag span{
+	margin-right: 10px;
+}
+#home .left > div section .TimeAdd span{
+	margin-right: 20px;
+}
+#home .left > div section .apply button{
+	border: none;
+	border-radius: 2px;
+	padding: 4px 5px;
+	margin-right: 10px;
+	font-size: 14px;
+	background-color: rgb(66,133,244);
+	color: #fff;
+}
+#home .left > div section .apply span{
+	margin-right: 10px;
+}
+#home .right{
+	overflow: hidden;
+	padding-left: 120px;
+}
+#home .right > div{
+	margin-top: 30px;
+	padding-right: 100px;
+}
+#home .right > div h2{
+	font-weight: bold;
+	font-size: 18px;
+	padding: 2px 5px;
+	border-bottom: 1px solid #000;
+	margin-bottom: 5px;
+}
+#home .right > div h2 a{
+	float: right;
+	font-size: 14px;
+	color: #000;
+	font-weight: normal;
+	display: inline-block;
+	margin-top: 5px;
+}
+#home .right i{
+	margin-right: 1px;
+}
+#home .right i:nth-child(1){
+	color: rgb(66,133,244);
+}
+#home .right i:nth-child(2){
+	color: rgb(234,67,53);
+}
+#home .right i:nth-child(3){
+	color: rgb(251,188,5);
+}
+#home .right i:nth-child(4){
+	color: rgb(66,133,244);
+}
+#home .right i:nth-child(5){
+	color: rgb(52,168,83);
+}
+#home .right i:nth-child(6){
+	color: rgb(234,67,53);
+}
+#home .right button{
+	background-color: rgb(66,133,244);
+	padding: 8px 30px;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	font-size: 16px;
+	margin-left: 20px;
+	margin-top: 10px;
+	font-weight: bold;
+}
+#home .right > div span{
+	display: inline-block;
+	line-height: 25px;
+}
+
+/*发布新问题（分享）*/
+#createNew > div{
+	padding-left: 100px;
+}
+#createNew > div h1{
+	font-size: 22px;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+#createNew > div > div{
+	padding-left: 10px;
+	margin-bottom: 15px;
+}
+#createNew > div > div label{
+	margin-right: 5px;
+	display: inline-block;
+	width: 65px;
+	text-align: right;
+}
+#createNew > div > div input,
+#createNew > div > div textarea{
+	padding: 1px 5px;
+	width: 600px;
+	height: 25px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+#createNew > div > div input:focus,
+#createNew > div > div textarea:focus{
+	border-color: rgba(82,168,236,.8);
+	outline: 0;
+	box-shadow: 0 0 8px rgba(82,168,236,.6);
+}
+#createNew > div > div textarea{
+	height: 300px;
+	resize: none;
+	vertical-align: top;
+}
+#createNew > div #submit{
+	width: 680px;
+	text-align: center;
+	margin-top: 30px;
+}
+#createNew > div #submit a{
+	color: #fff;
+	background-color: rgb(66,133,244);
+	border-radius: 5px;
+	padding: 5px 10px;
+}
+
+/*个人主页*/
+#userPage > div{
+	padding-left: 100px;
+	padding-right: 300px;
+}
+#userPage > div #profile #mail,
+#userPage > div #activity > div{
+	border-top: 1px solid #000;
+}
+#userPage > div section > div{
+	padding: 8px 0;
+}
+#userPage > div #profile > div span:first-child{
+	display: inline-block;
+	width: 70px;
+}
+#userPage > div h1{
+	font-size: 35px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	color: rgb(66,133,244);
+}
+#userPage > div h1,
+#userPage > div section{
+	padding-left: 80px;
+}
+#userPage  > div section h2{
+	position: absolute;
+	margin-left: -75px;
+	margin-top: -10px;
+}
+#userPage #activity > div{
+	border-top: 1px solid black;
+	padding: 15px 10px;
+	line-height: 20px;
+}
+#userPage #activity > div h3{
+	color: rgb(66,133,244);
+	font-weight: bold;
+	font-size: 18px;
+  	font-family: '微软雅黑';
+}
+#userPage #activity > div h3 span{
+	color: #000;
+	margin-left: 20px;
+	font-weight: normal;
+	font-size: 14px;
+}
+#userPage #activity > div .tag,
+#userPage #activity > div .TimeAdd,
+#userPage #activity > div .count{
+	margin: 5px 0;
+	font-size: 14px;
+}
+#userPage #activity > div .tag span{
+	margin-right: 10px;
+}
+#userPage #activity > div .TimeAdd span{
+	margin-right: 20px;
+}
+#userPage #activity > div .apply button{
+	border: none;
+	border-radius: 2px;
+	padding: 4px 5px;
+	margin-right: 10px;
+	font-size: 14px;
+	background-color: rgb(66,133,244);
+	color: #fff;
+}
+#userPage #activity > div .apply span{
+	margin-right: 10px;
+}

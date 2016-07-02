@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <title>home</title>
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	    <meta name="apple-mobile-web-app-capable" content="yes"/>
+	    <link rel="stylesheet" type="text/css" href="css/page.css">
+	    <link rel="stylesheet" type="text/css" href="css/base.css">
+	    <link rel="stylesheet" type="text/css" href="css/common.css">
+	</head>
+	<body onload="load()" id="home">
+	    <header>
+	      	<img class="logo" src="img/logo2.png">
+	      	<nav>
+	      		<span id="activeNav">活动列表</span>
+		      	<span id="askNav">提问列表</span>
+		      	<span id="shareNav">分享列表</span>
+	      	</nav>
+	      	<span id="search">
+	      		<input type="text">
+	      		<img src="img/search.png">
+	      	</span>
+	      	<span>
+	      		<a id="exit" onclick = "window.location.href = 'login.html'">退出</a>
+	      		<a id="myHome" href="userPage.html">Rebecca</a>
+	      	</span>
+	    </header>
+	    <div class="left">
+	    	<div id="active">
+	    	<!--此处是动态加载-->
+	    	</div>
+	    	<div id="ask" style="display:none">
+	    		<section>
+	    			<h1>Girl Hackthon<span>发起人：小明</span></h1>
+	    			<div class="tag">标签：<span>谷歌</span><span>开发</span></div>
+	    			<div class="intro">描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</div>
+	    			<div class="apply">
+	    				<span>联系方式：110110110</span>
+	    				<button>我要分享</button>
+	    			</div>
+	    		</section>
+	    	</div>
+	    	<div id="share" style="display:none">
+	    		<section>
+	    			<h1>Girl Hackthon<span>发起人：小红工程师</span></h1>
+	    			<div class="tag">标签：<span>谷歌</span><span>开发</span></div>
+	    			<div class="intro">描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</div>
+	    			<div class="apply">
+	    				<span>联系方式：110110110</span>
+	    				<button>我想去听</button>
+	    			</div>
+	    		</section>
+	    	</div>
+	    </div>
+	    <div class="right">
+	    	<div><h2>233个<i>活</i><i>动</i><i>正</i><i>在</i><i>进</i><i>行</i></h2></div>
+	    	<button onclick="window.location.href='addQuestion.html'">我要提问</button>
+	    	<div>
+	    		<h2><i>热</i><i>门</i><i>活</i><i>动</i><i>标</i><i>签</i></h2>
+	    		<span>谷歌</span>
+	    		<span>求职</span>
+	    		<span>工程</span>
+	    		<span>学术</span>
+	    		<span>机器学习</span>
+	    		<span>CAD</span>
+	    		<span>开发</span>
+	    	</div>
+	    	<div>
+	    		<h2><i>我</i><i>参</i><i>加</i><i>的</i><i>活</i><i>动</i><a href="">>更多</a></h2>
+	    		<p>您还没有正在进行的活动，快去参加吧</p>
+	    	</div>
+	    </div>
+	    <div class="mask">
+	    	<section>
+	    		<p>提示：请和话题发起人协商好时间地点后进行填写！</p>
+		    	<div id="time">
+		    		<label>时间：</label>
+		    		<input type="text">
+		    	</div>
+		    	<div id="loc">
+		    		<label>地点：</label>
+		    		<input type="text">
+		    	</div>
+		    	<span>
+		    		<a id="confirm">确认</a>
+		    		<a id="cancel">取消</a>
+		    	</span>
+	    	</section>
+	    </div>
+	    <script type="text/javascript" src="js/jquery.min.js"></script>
+	    <script type="text/javascript">	
+	    $(function(){
+	    	//导航栏切换
+	    	$('nav').on('click','span',function(){
+	    		var a = $(this).attr('id').split('N')[0];
+	    		a = '#' + a;
+	    		$(a).css('display','block').siblings().css('display','none');
+	    		var type;
+	    		if(a=="#ask"){
+	    			type = 0;
+	    			load1(type);
+	    		} 
+	    		else if(a=="#share"){
+	    			type = 1;
+	    			load1(type);	
+	    		}
+	    		else{
+	    			load();
+	    		}
+	    		
+	    	})
+	    	//点击“我要分享”/“我想去听”后弹出框填写时间地点
+	    	$('#share .apply, #ask .apply').on('click', 'button', function(){
+	    		$('.mask').css('display','block');
+	    	})
+	    	$('.mask').on('click', '#cancel', function(){
+	    		$('.mask').css('display','none');
+	    	})
+	    	$('.mask').on('click', '#confirm', function(){
+	    		var time = $('.mask #time input').val(),
+	    		    loc = $('.mask #loc input').val();
+	    		if(time=="" || loc==""){
+	    			alert('请完整填写时间地点信息！');
+	    		}
+	    		else{
+	    			alert('此处添加向后台传数据操作');
+	    			$('.mask').css('display','none');
+	    		}
+	    	})
+	    })
+
+	    function load(){
+	    	alert(document.cookie);
+	    	$.ajax({
+            	type: "POST",
+            	url:'Handler/listAllActivity.php',
+            	data:{}, 
+            	success: function(data)
+            	{
+	              	var result = JSON.parse(data);
+	              	var len = result.length; 
+	              	$("#active").empty();
+	              	var tag = result[0]['tag'].split(',').join('</span><span>');
+	              	var $html = "<section><h1>" + result[0]['topic'] + "（" + result[0]['status'] + ")<span>发起人：" + result[0]['sponsor'] + "</span></h1><div class='tag'>标签：<span>" + tag + "</span></div><div class='intro'>" + result[0]['description'] + "</div><div class='TimeAdd'><span>时间：" + result[0]['time'] + "</span><span>" + result[0]['location'] + "</span></div><div class='apply forbid'><button>我要报名</button><span>已报名人数：" + result[0]['user_count']+ "人</span></div></section>";
+
+	                $("#active").append($html);
+	              for (var i = 1; i < len; i++) 
+	              {
+	                var $tag = result[i]['tag'].split(',').join('</span><span>');
+	              	var $html = "<section><h1>" + result[i]['topic'] + "（" + result[i]['status'] + ")<span>发起人：" + result[i]['sponsor'] + "</span></h1><div class='tag'>标签：<span>" + tag + "</span></div><div class='intro'>" + result[i]['description'] + "</div><div class='TimeAdd'><span>时间：" + result[i]['time'] + "</span><span>" + result[i]['location'] + "</span></div><div class='apply forbid'><button>我要报名</button><span>已报名人数：" + result[i]['user_count']+ "人</span></div></section>";
+	                $("#active").append($html);
+	              }
+            	}
+        		});
+    	}
+
+    	function load1(type){
+    		$.ajax({
+            	type: "POST",
+            	url:'Handler/allTopicList.php',
+            	data:{"type":type}, 
+            	success: function(data)
+            	{
+            		//alert(data);
+	              	var result = JSON.parse(data);
+	              	var len = result.length;
+	              	$("#ask").empty();
+	              	$("#share").empty();
+	              	var tag = result[0]['tag'].split(',').join('</span><span>');
+	              	var $html = "<section><h1>" + result[0]['topic'] + "<span>发起人：" + result[0]['sponsor'] + "</span></h1><div class='tag'>标签：<span>" + tag + "</span></div><div class='intro'>" + result[0]['description'] + "</div><div class='apply'><span>联系方式：" + result[0]['tel'] + "</span><button>我想去听</button></div></section>";
+	                $("#ask").append($html);
+	                $("#share").append($html);
+	              for (var i = 1; i < len; i++) 
+	              {
+	                var $tag = result[i]['tag'].split(',').join('</span><span>');
+	              	var $html = "<section><h1>" + result[i]['topic'] + "<span>发起人：" + result[i]['sponsor'] + "</span></h1><div class='tag'>标签：<span>" + tag + "</span></div><div class='intro'>" + result[i]['description'] + "</div><div class='apply'><span>联系方式：" + result[i]['tel'] + "</span><button>我想去听</button></div></section>";
+	                $("#ask").append($html);
+	                $("#share").append($html);
+	              }
+            	}
+        		});
+    	}
+	    </script>
+	</body>
+</html>
