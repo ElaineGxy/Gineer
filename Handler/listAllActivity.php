@@ -26,7 +26,7 @@ if ($result)
         $user_count = mysqli_query($conn,$other_sql);
         $curTime = time();
         $curDayTime = date("y-m-d", $curTime);
-        echo $curDayTime;
+        
         if($row['starttime'] > $curDayTime) {
             $status = "还未举行";
         }else if($row['starttime'] == $curDayTime) {
@@ -35,7 +35,8 @@ if ($result)
         else {
             $status = "已经结束";
         }
-        $arrayList[]= array('topic'=>$row['tSubject'],
+        $arrayList[]= array('id'=>$activity_id,
+            'topic'=>$row['tSubject'],
             'status' => $status,
             'sponsor' =>  $row['sponsorName'],
             'tag' => $row['tag'],

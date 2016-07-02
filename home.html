@@ -131,8 +131,18 @@
 	    	})
 	    })
 
+		function apply(){
+	    	
+	    		var ID = document.cookie.split(';')[0];
+	    		var acID = $(this).parents('section').attr('ID');
+	    		$.post('Handler/addParticipants.php',
+		        {activity_id:acID,user_id:ID},
+		        function(response){
+		          if (response=='fail') alert('错误');
+		          else alert('成功');
+		      });
+		}
 	    function load(){
-	    	alert(document.cookie);
 	    	$.ajax({
             	type: "POST",
             	url:'Handler/listAllActivity.php',
@@ -143,17 +153,17 @@
 	              	var len = result.length; 
 	              	$("#active").empty();
 	              	var tag = result[0]['tag'].split(',').join('</span><span>');
-	              	var $html = "<section><h1>" + result[0]['topic'] + "（" + result[0]['status'] + ")<span>发起人：" + result[0]['sponsor'] + "</span></h1><div class='tag'>标签：<span>" + tag + "</span></div><div class='intro'>" + result[0]['description'] + "</div><div class='TimeAdd'><span>时间：" + result[0]['time'] + "</span><span>" + result[0]['location'] + "</span></div><div class='apply forbid'><button>我要报名</button><span>已报名人数：" + result[0]['user_count']+ "人</span></div></section>";
+	              	var $html = "<section ID='" + result[0]['id'] + "'><h1>" + result[0]['topic'] + "（" + result[0]['status'] + ")<span>发起人：" + result[0]['sponsor'] + "</span></h1><div class='tag'>标签：<span>" + tag + "</span></div><div class='intro'>" + result[0]['description'] + "</div><div class='TimeAdd'><span>时间：" + result[0]['time'] + "</span><span>" + result[0]['location'] + "</span></div><div class='apply'><button onclick='apply()'>我要报名</button><span>已报名人数：" + result[0]['user_count']+ "人</span></div></section>";
 
 	                $("#active").append($html);
 	              for (var i = 1; i < len; i++) 
 	              {
 	                var $tag = result[i]['tag'].split(',').join('</span><span>');
-	              	var $html = "<section><h1>" + result[i]['topic'] + "（" + result[i]['status'] + ")<span>发起人：" + result[i]['sponsor'] + "</span></h1><div class='tag'>标签：<span>" + tag + "</span></div><div class='intro'>" + result[i]['description'] + "</div><div class='TimeAdd'><span>时间：" + result[i]['time'] + "</span><span>" + result[i]['location'] + "</span></div><div class='apply forbid'><button>我要报名</button><span>已报名人数：" + result[i]['user_count']+ "人</span></div></section>";
+	              	var $html = "<section ID='" + result[i]['id'] + "'><h1>" + result[i]['topic'] + "（" + result[i]['status'] + ")<span>发起人：" + result[i]['sponsor'] + "</span></h1><div class='tag'>标签：<span>" + tag + "</span></div><div class='intro'>" + result[i]['description'] + "</div><div class='TimeAdd'><span>时间：" + result[i]['time'] + "</span><span>" + result[i]['location'] + "</span></div><div class='apply'><button>我要报名</button><span>已报名人数：" + result[i]['user_count']+ "人</span></div></section>";
 	                $("#active").append($html);
 	              }
             	}
-        		});
+        	});
     	}
 
     	function load1(type){
@@ -180,7 +190,7 @@
 	                $("#share").append($html);
 	              }
             	}
-        		});
+        	});
     	}
 	    </script>
 	</body>
