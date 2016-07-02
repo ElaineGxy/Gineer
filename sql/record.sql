@@ -13,8 +13,6 @@ File Encoding         : 65001
 Date: 2016-07-02 16:25:30
 */
 
-SET FOREIGN_KEY_CHECKS=0;
-
 -- ----------------------------
 -- Table structure for record
 -- ----------------------------
@@ -25,6 +23,4 @@ CREATE TABLE `record` (
   `summary` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `record_activity` (`activity_id`),
-  CONSTRAINT `record_activity` FOREIGN KEY (`activity_id`) REFERENCES `activity` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-SET FOREIGN_KEY_CHECKS=1;
