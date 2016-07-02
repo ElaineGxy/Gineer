@@ -26,13 +26,13 @@ if ($result)
         //echo "abc";
         if($validate !="-1"){
             $status="等待中";
-        $arrayList[]= array('topic'=>$row['tSubject'],
-            'sponsor' =>  $row['sponsorName'],
-            'tag' => $row['tag'],
-            'description' => $row['description'],
-            'startTime' => $row['starttime'],
-            'tel' => $row['tel'],
-        );
+            $arrayList[]= array('topic'=>$row['tSubject'],
+                'sponsor' =>  $row['sponsorName'],
+                'tag' => $row['tag'],
+                'description' => $row['description'],
+                'startTime' => $row['starttime'],
+                'tel' => $row['tel'],
+            );
         }
     }
 
