@@ -24,7 +24,17 @@ if ($result)
         $activity_id = $row['aid'];
         $other_sql=sprintf("select count(*) from activityList where id = '%s'", $activity_id);
         $user_count = mysqli_query($conn,$other_sql);
-        $status="正在举行";
+        $curTime = time();
+        $curDayTime = date("y-m-d", $curTime);
+        echo $curDayTime;
+        if($row['starttime'] > $curDayTime) {
+            $status = "还未举行";
+        }else if($row['starttime'] == $curDayTime) {
+            $status = "正在举行";
+        }
+        else {
+            $status = "已经结束";
+        }
         $arrayList[]= array('topic'=>$row['tSubject'],
             'status' => $status,
             'sponsor' =>  $row['sponsorName'],
@@ -44,5 +54,3 @@ else
 
 }
 echo json_encode($arrayList);
-
-
