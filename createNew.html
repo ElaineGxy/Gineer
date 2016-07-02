@@ -27,13 +27,6 @@
       </header>
     <div>
       <h1>创建新问题（分享）</h1>
-      <div id="type">
-        <label>提问or分享</label>
-        <select>
-        <option value ="ask">提问</option>
-        <option value ="share">分享</option>
-        </select>
-      </div>
       <div id="theme">
         <label>主题</label>
         <input type="text">
@@ -54,14 +47,24 @@
         <a href="" onclick = "newQuestion()">发布问题（分享）</a>
       </div>
     </div>
-     <script type="text/javascript" src="js/jquery.min.js"></script>
-      <script type="text/javascript"> 
-       function newQuestion()
-      {
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript"> 
+      var type;
+      $(function(){
+        type = window.location.href.split('?')[1];
+        if(type=='0'){
+          $('h1').text('创建新问题');
+          $('#submit a').text('发布问题');
+        }
+        else{
+          $('h1').text('创建新分享');
+          $('#submit a').text('发布分享');
+        }
+      })
+      function newQuestion(){
         var theme_content=$("#theme input").val();
         var descrb_content=$("#descrb input").val();
         var phonenum = $("#phone input").val();
-        var type = $("#type select").val();
 
         if(theme_content==""||descrb_content==""||phonenum=="")
           alert("所有选项不为空！")
@@ -73,9 +76,9 @@
               $('#status').text('提问成功').css('color','green');
               window.location.href="home.html?ask";
             } 
-        });
+      });
     }
-      </script>
+    </script>
     </div>
   </body>
 </html>

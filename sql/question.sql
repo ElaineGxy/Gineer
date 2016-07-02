@@ -13,8 +13,6 @@ File Encoding         : 65001
 Date: 2016-07-02 16:25:24
 */
 
-SET FOREIGN_KEY_CHECKS=0;
-
 -- ----------------------------
 -- Table structure for question
 -- ----------------------------
@@ -26,6 +24,4 @@ CREATE TABLE `question` (
   `answer_content` text,
   PRIMARY KEY (`id`),
   KEY `question_activity` (`activity_id`),
-  CONSTRAINT `question_activity` FOREIGN KEY (`activity_id`) REFERENCES `activity` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-SET FOREIGN_KEY_CHECKS=1;

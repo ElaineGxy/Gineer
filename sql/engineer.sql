@@ -13,8 +13,6 @@ File Encoding         : 65001
 Date: 2016-07-02 16:25:14
 */
 
-SET FOREIGN_KEY_CHECKS=0;
-
 -- ----------------------------
 -- Table structure for engineer
 -- ----------------------------
@@ -29,7 +27,5 @@ CREATE TABLE `engineer` (
   `position` varchar(255) NOT NULL,
   `type` int(11) NOT NULL,
   `idno` varchar(18) NOT NULL,
-  `activity` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-SET FOREIGN_KEY_CHECKS=1;

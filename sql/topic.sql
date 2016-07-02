@@ -13,14 +13,12 @@ File Encoding         : 65001
 Date: 2016-07-02 16:25:35
 */
 
-SET FOREIGN_KEY_CHECKS=0;
-
 -- ----------------------------
 -- Table structure for topic
 -- ----------------------------
 DROP TABLE IF EXISTS `topic`;
 CREATE TABLE `topic` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `subject` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `signupnum` int(11) NOT NULL,
@@ -32,5 +30,4 @@ CREATE TABLE `topic` (
   `validate` int(11) NOT NULL,
   `type` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-SET FOREIGN_KEY_CHECKS=1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

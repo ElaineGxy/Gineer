@@ -13,8 +13,6 @@ File Encoding         : 65001
 Date: 2016-07-02 16:25:09
 */
 
-SET FOREIGN_KEY_CHECKS=0;
-
 -- ----------------------------
 -- Table structure for activitylist
 -- ----------------------------
@@ -23,4 +21,3 @@ CREATE TABLE `activitylist` (
   `activity_id` int(255) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-SET FOREIGN_KEY_CHECKS=1;
