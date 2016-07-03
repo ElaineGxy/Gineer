@@ -23,7 +23,15 @@ if ($result)
     {
         $activity_id = $row['aid'];
         $other_sql=sprintf("select count(*) from activityList where id = '%s'", $activity_id);
-        $user_count = mysqli_query($conn,$other_sql);
+
+        $user_count_result = mysqli_query($conn,$other_sql);
+        if($user_count_result){
+            $user_count_result=$rs[0];
+        }else{
+            $user_count_result=0;
+        }
+
+        list($num) = mysqli_fetch_row($result);
         $curTime = time();
         $curDayTime = date("y-m-d", $curTime);
         
