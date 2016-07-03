@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>createNew</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -48,37 +49,6 @@
       </div>
     </div>
     <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript"> 
-      var type;
-      $(function(){
-        type = window.location.href.split('?')[1];
-        if(type=='0'){
-          $('h1').text('创建新问题');
-          $('#submit a').text('发布问题');
-        }
-        else{
-          $('h1').text('创建新分享');
-          $('#submit a').text('发布分享');
-        }
-      })
-      function newQuestion(){
-        var theme_content=$("#theme input").val();
-        var descrb_content=$("#descrb input").val();
-        var phonenum = $("#phone input").val();
-
-        if(theme_content==""||descrb_content==""||phonenum=="")
-          alert("所有选项不为空！")
-        $.post('Handler/.php',
-          {sponsorID:userid,subject:theme_content,content:descrb_content},
-          function(response){
-            if (response=='fail') $('#status').text('话题非法').css('color','red');
-            if (response=='success'){
-              $('#status').text('提问成功').css('color','green');
-              window.location.href="home.html?ask";
-            } 
-      });
-    }
-    </script>
-    </div>
-  </body>
+</div>
+</body>
 </html>
