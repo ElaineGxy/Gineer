@@ -19,6 +19,9 @@ header nav{
 header nav span{
 	margin-right: 15px;
 }
+header nav a{
+	color: inherit;
+}
 header #search img{
 	width: 20px;
 }

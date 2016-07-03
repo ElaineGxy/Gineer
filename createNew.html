@@ -10,21 +10,21 @@
   </head>
   <body id="createNew">
     <header>
-          <img class="logo" src="img/logo2.png">
-          <nav>
-            <span id="activeNav">活动列表</span>
-            <span id="askNav">提问列表</span>
-            <span id="shareNav">分享列表</span>
-          </nav>
-          <span id="search">
-            <input type="text">
-            <img src="img/search.png">
-          </span>
-          <span>
-            <a id="exit">退出</a>
-            <a id="myHome" href="userPage.html">Rebecca</a>
-          </span>
-      </header>
+        <a href="home.html?active"><img class="logo" src="img/logo2.png"></a>
+        <nav>
+          <span id="activeNav"><a href="home.html?active">活动列表</a></span>
+          <span id="askNav"><a href="home.html?ask">提问列表</a></span>
+          <span id="shareNav"><a href="home.html?share">分享列表</a></span>
+        </nav>
+        <span id="search">
+          <input type="text">
+          <img src="img/search.png">
+        </span>
+        <span>
+          <a id="exit" onclick = "window.location.href = 'login.html'">退出</a>
+          <a id="myHome" href="userPage.html">Rebecca</a>
+        </span>
+    </header>
     <div>
       <h1>创建新问题（分享）</h1>
       <div id="theme">

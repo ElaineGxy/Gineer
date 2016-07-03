@@ -25,11 +25,10 @@
   $checkpass = $row['password'];
   
   if ( $checkpass == $pass ) {
-  	 
+  	 echo $user_id;
      $user = new User($name,$pass,$user_id);
      $saveUser = serialize($user);
      $_SESSION['user']=$saveUser;
-     echo $user_id;
   }
   else
   	echo "fail";

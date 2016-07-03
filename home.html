@@ -11,11 +11,11 @@
 	</head>
 	<body onload="load()" id="home">
 	    <header>
-	      	<img class="logo" src="img/logo2.png">
+	      	<a href="home.html?active"><img class="logo" src="img/logo2.png"></a>
 	      	<nav>
-	      		<span id="activeNav">活动列表</span>
-		      	<span id="askNav">提问列表</span>
-		      	<span id="shareNav">分享列表</span>
+	      		<span id="activeNav"><a href="home.html?active">活动列表</a></span>
+		      	<span id="askNav"><a href="home.html?ask">提问列表</a></span>
+		      	<span id="shareNav"><a href="home.html?share">分享列表</a></span>
 	      	</nav>
 	      	<span id="search">
 	      		<input type="text">
@@ -68,7 +68,7 @@
 	    		<span>开发</span>
 	    	</div>
 	    	<div>
-	    		<h2><i>我</i><i>参</i><i>加</i><i>的</i><i>活</i><i>动</i><a href="">>更多</a></h2>
+	    		<h2><i>我</i><i>参</i><i>加</i><i>的</i><i>活</i><i>动</i><a href="userPage.html">>更多</a></h2>
 	    		<p>您还没有正在进行的活动，快去参加吧</p>
 	    	</div>
 	    </div>
@@ -93,6 +93,11 @@
 	    <script type="text/javascript">	
 	    $(function(){
 	    	//导航栏切换
+	    	var b = window.location.href.split('?')[1];
+	    	if(b!=""){
+	    		b = '#' + b;
+	    		$(b).css('display','block').siblings().css('display','none');
+	    	} 
 	    	$('nav').on('click','span',function(){
 	    		var a = $(this).attr('id').split('N')[0];
 	    		a = '#' + a;
