@@ -63,14 +63,18 @@
       })
       function newQuestion(){
         var theme_content=$("#theme input").val();
-        var descrb_content=$("#descrb input").val();
+        var descrb_content=$("#descrb textarea").val();
         var phonenum = $("#phone input").val();
+        var tag = $("#tag input").val();
+        alert(tag);
+        var $userid = document.cookie.split(";")[0];
 
         if(theme_content==""||descrb_content==""||phonenum=="")
           alert("所有选项不为空！")
-        $.post('Handler/.php',
-          {sponsorID:userid,subject:theme_content,content:descrb_content},
+        $.post('Handler/createTopic.php',
+          {sponsorID:$userid,subject:theme_content,content:descrb_content,type:type,tag:tag},
           function(response){
+            alert(response);
             if (response=='fail') $('#status').text('话题非法').css('color','red');
             if (response=='success'){
               $('#status').text('提问成功').css('color','green');
